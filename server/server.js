@@ -2,7 +2,11 @@ const { debug } = require('console');
 
 const PORT = 3000;
 
-const server = require('http').createServer();
+const fs = require('fs');
+const server = require('http').createServer((req, res) => {
+    res.writeHead(200, { 'content-type': 'text/html'})
+    fs.createReadStream('index.html').pipe(res)
+})
 const io = require('socket.io')(server, { cors: { origin: '*'} });
 
 //  Listen for incoming connections
