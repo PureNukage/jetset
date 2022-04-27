@@ -1,1 +1,4 @@
-drawbutton(x,y, x+160,y+80, "Mint")
+var Clicked = drawbutton(x,y, 80,40, "Mint")
+if Clicked {
+	
+}

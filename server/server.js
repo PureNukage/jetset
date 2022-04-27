@@ -24,19 +24,26 @@ io.on('connection', (client) => {
     client.on('login', (data) => {
         console.log(`login event data: > '${data}'`);
 
-        var alreadyIn = users.includes(data);
+        //var alreadyIn = users.includes([data, client.id]);
+        var alreadyIn = false
+        for(var i=0;i<users.length;i++) {
+            if (users[i][0] == data || users[i][1] == client.id) {
+                alreadyIn = true;
+            }
+        }
         console.log(alreadyIn);
 
         if (alreadyIn == true) {
             console.log('this user is already in the database');
         } else {
-            users.push(data);
+            users.push([data, client.id]);
         }
 
-        console.log(users);
+        console.table(users);
+        //console.log(users);
 
-        //  Send same data back
-        client.emit('login', data);
+        //  Send login result back
+        client.emit('login', alreadyIn);
     });
 
     client.on('generate_alien', (data) => {
@@ -59,6 +66,18 @@ io.on('connection', (client) => {
 
     client.on('disconnect', (data) => {
         console.log(`Client disconnected.. > '${client.id}'`);
+
+        for(var i=0; i < users.length; i++) {
+
+            if (users[i][1] == client.id) {
+                //console.log("deleting user at: " + i);
+                users.pop(i);
+            }
+
+        }
+
+        console.table(users);
+
     });
     
 });
