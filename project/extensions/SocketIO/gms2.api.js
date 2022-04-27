@@ -36,6 +36,14 @@ class SocketIO {
         this.socket.on('disconnect', () => {
             gml_Script_gmcallback_sio_on_disconnect();
         });
+
+        this.socket.on('login', (data) => {
+            window['gml_Script_gmcallback_sio_on_login'](-1, -1, data);
+        });
+
+        this.socket.on('generate_alien', (data) => {
+            window['gml_Script_gmcallback_sio_on_generate_alien'](-1, -1, data);
+        });
     }
 
     add_event(name) {

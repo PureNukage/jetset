@@ -1,5 +1,5 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function gmcallback_sio_on_connect() {
-
+function gmcallback_sio_on_login() {
+	show_debug_message("received address as: "+string(argument0));
 }

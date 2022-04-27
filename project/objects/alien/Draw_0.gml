@@ -1,0 +1,5 @@
+draw_sprite_ext(s_head,0,x,y,1,1,0,array_skin_colors[skin_color_index],1)
+draw_sprite_ext(s_body,0,x,y,1,1,0,array_body_colors[body_color_index],1)
+draw_sprite_ext(s_legs,0,x,y,1,1,0,array_legs_colors[legs_color_index],1)
+draw_sprite_ext(s_hand,0,x,y,1,1,0,array_skin_colors[skin_color_index],1)
+draw_sprite_ext(s_hair,0,x,y,1,1,0,array_hair_colors[hair_color_index],1)

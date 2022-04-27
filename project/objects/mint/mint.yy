@@ -27,7 +27,7 @@
     "path": "folders/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "mainmenu",
+  "name": "mint",
   "tags": [],
   "resourceType": "GMObject",
 }

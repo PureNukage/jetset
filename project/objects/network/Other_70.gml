@@ -10,6 +10,8 @@ if _id == "getWalletAddress" {
 		
 		if room == RoomMainMenu {
 			room_goto(RoomLevelOne)
+			
+			sio_emit("login", web3address);
 		}
 		
 	}
