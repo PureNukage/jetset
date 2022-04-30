@@ -3,19 +3,25 @@ const { debug } = require('console');
 const PORT = 3000;
 
 const fs = require('fs');
-const server = require('http').createServer((req, res) => {
+const server = require('http').createServer(async (req, res) => {
     res.writeHead(200, { 'content-type': 'text/html'})
     fs.createReadStream('index.html').pipe(res)
+
+    if (req.url == "/users" && req.method === "GET") {
+        console.log(JSON.stringify(users));
+        res.write(JSON.stringify(users));
+        res.end();
+    }
 })
 const io = require('socket.io')(server, { cors: { origin: '*'} });
+
+const users = [];
 
 //  Listen for incoming connections
 server.listen(PORT, (err) => {
     if (err) throw err;
     console.log(`Listening on port..> '${PORT}'`);
 });
-
-const users = [];
 
 io.on('connection', (client) => {
     console.log(`New connection.. > '${client.id}'`);
@@ -28,7 +34,6 @@ io.on('connection', (client) => {
     client.on('login', (data) => {
         console.log(`login event data: > '${data}'`);
 
-        //var alreadyIn = users.includes([data, client.id]);
         var alreadyIn = false
         for(var i=0;i<users.length;i++) {
             if (users[i][0] == data || users[i][1] == client.id) {
@@ -44,7 +49,6 @@ io.on('connection', (client) => {
         }
 
         console.table(users);
-        //console.log(users);
 
         //  Send login result back
         client.emit('login', alreadyIn);
@@ -52,18 +56,39 @@ io.on('connection', (client) => {
 
     client.on('generate_alien', (data) => {
         console.log('receiving request to generate an alien');
-        //console.log(data);
+        console.log(data);
 
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
 
-        data.gmlhair_color = getRandomInt(3);
-        data.gmlbody_color = getRandomInt(3);
-        data.gmllegs_color = getRandomInt(2);
-        data.gmlskin_color = getRandomInt(3);
+        for(const key in data) {
+            var Key = data[key];
+            if (typeof Key === 'object') {
+                var RandomAmount = -1
+                //  find the total amount of pieces for each attribute
+                for(const keys in Key) {
+                    if ((Key[keys] == 'hair') || (Key[keys] == 'body') || (Key[keys] == 'skin')) {
+                        RandomAmount = 3
+                    }
+                    else if (Key[keys] == 'legs') {
+                        RandomAmount = 2
+                    }
+                    else {
+                    }
+                }
+                //  generate the RandomAmount for the attribute
+                if (RandomAmount != -1) {
+                    for(const keys in Key) {
+                        if (Key[keys] == -1) {
+                            Key[keys] = getRandomInt(RandomAmount);
+                        }
+                    }
+                }
+            }
+        }
 
-        //console.log(data);
+        console.log(data);
 
         client.emit('generate_alien', data);
     });

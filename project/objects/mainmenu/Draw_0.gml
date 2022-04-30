@@ -1,5 +1,5 @@
 if network.web3connected {
-	var MetaMask = drawbutton(room_width/2-100,room_height/2-50,200,100,"Login to MetaMask")
+	var MetaMask = drawbutton(room_width/2-100,room_height/2-50,200,100,"Login with MetaMask")
 	if MetaMask {
 		getMetamaskAccount();
 	}
