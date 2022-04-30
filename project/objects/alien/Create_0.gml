@@ -17,9 +17,9 @@ array_skin_colors[0] = make_color_rgb(255,174,201)
 array_skin_colors[1] = make_color_rgb(255,232,151)
 array_skin_colors[2] = make_color_rgb(205,159,135)
 
-hair_color_index = 0//irandom_range(0,2)
-body_color_index = 0//irandom_range(0,2)
-legs_color_index = 0//irandom_range(0,1)
-skin_color_index = 0//irandom_range(0,2)
+hair_color_index = 0
+body_color_index = 0
+legs_color_index = 0
+skin_color_index = 0
 
 instance_create_layer(x,y-100,"Instances",mint)
