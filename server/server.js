@@ -68,11 +68,11 @@ io.on('connection', (client) => {
                 var RandomAmount = -1
                 //  find the total amount of pieces for each attribute
                 for(const keys in Key) {
-                    if ((Key[keys] == 'hair') || (Key[keys] == 'body') || (Key[keys] == 'skin')) {
-                        RandomAmount = 3
+                    if ((Key[keys] == 'hair') || (Key[keys] == 'body') || (Key[keys] == 'legs')) {
+                        RandomAmount = 5
                     }
-                    else if (Key[keys] == 'legs') {
-                        RandomAmount = 2
+                    else if (Key[keys] == 'skin') {
+                        RandomAmount = 3
                     }
                     else {
                     }
