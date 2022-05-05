@@ -6,7 +6,7 @@ const PORT = 3000;
 const fs = require('fs');
 const server = require('http').createServer(async (req, res) => {
     res.writeHead(200, { 'content-type': 'text/html'})
-    fs.createReadStream('index.html').pipe(res)
+    fs.createReadStream('static/index.html').pipe(res)
 
     if (req.url == "/users" && req.method === "GET") {
         console.log(JSON.stringify(users));
@@ -30,6 +30,16 @@ const server = require('http').createServer(async (req, res) => {
 const io = require('socket.io')(server, { cors: { origin: '*'} });
 
 const users = [];
+
+//  Function to search users[] using the client.id as KEY and returning the users ETH address
+function find_ethAddress(_client_id) {
+    for(var i=0;i<users.length;i++) {
+        if (users[i][1] == _client_id) {
+            return users[i][0];
+        }
+    }
+    return -1
+}
 
 //  Listen for incoming connections
 server.listen(PORT, (err) => {
@@ -71,8 +81,8 @@ io.on('connection', (client) => {
     });
 
     client.on('generate_alien', (data) => {
-        console.log('receiving request to generate an alien');
-        console.log(data);
+        console.log(`receiving request to generate an alien from ${find_ethAddress(client.id)}`);
+        //console.log(data);
 
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
@@ -104,7 +114,7 @@ io.on('connection', (client) => {
             }
         }
 
-        console.log(data);
+        //console.log(data);
 
         client.emit('generate_alien', data);
     });
