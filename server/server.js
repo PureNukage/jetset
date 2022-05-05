@@ -1,4 +1,5 @@
 const { debug } = require('console');
+var crypto = require('crypto');
 
 const PORT = 3000;
 
@@ -12,6 +13,19 @@ const server = require('http').createServer(async (req, res) => {
         res.write(JSON.stringify(users));
         res.end();
     }
+
+    if (req.url == "/hash" && req.method === "GET") {
+        var hash = crypto.createHash('sha256');
+
+        var code = 'poop';
+
+        code = hash.update(code);
+        code = hash.digest(code);
+
+        console.log(code);
+        res.write(code);
+        res.end();
+    }    
 })
 const io = require('socket.io')(server, { cors: { origin: '*'} });
 

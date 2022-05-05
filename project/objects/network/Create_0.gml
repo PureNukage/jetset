@@ -1,6 +1,8 @@
 web3connected = -1
 web3connected = checkMetaConnection()
 
+serverconnected = false
+
 //sio_addEvent("login")
 
 URL = "localhost:3000"
@@ -17,7 +19,7 @@ alien_x = -1
 alien_y = -1
 function generate_alien(_x, _y) {
 	var Alien = {
-		hair : new attribute("hair", -1), 
+		hair : new attribute("hair", -1),
 		body : new attribute("body", -1),
 		legs : new attribute("legs", -1),
 		skin : new attribute("skin", -1)

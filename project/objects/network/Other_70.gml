@@ -7,6 +7,7 @@ if _id == "getWalletAddress" {
 	if web3address != "0" {
 		debug.log("Got the users address as: "+string(web3address))
 		sio_connect_by_url(URL)
+		serverconnected = true
 		
 		if room == RoomMainMenu {
 			//room_goto(RoomLevelOne)
