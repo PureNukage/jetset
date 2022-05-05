@@ -48,9 +48,11 @@ io.on('connection', (client) => {
     client.on('login', (data) => {
         console.log(`login event data: > '${data}'`);
 
+        var ip_address = client.handshake.address;
+
         var alreadyIn = false
         for(var i=0;i<users.length;i++) {
-            if (users[i][0] == data || users[i][1] == client.id) {
+            if (users[i][0] == data || users[i][1] == client.id || users[i][2] == ip_address) {
                 alreadyIn = true;
             }
         }
@@ -59,7 +61,7 @@ io.on('connection', (client) => {
         if (alreadyIn == true) {
             console.log('this user is already in the database');
         } else {
-            users.push([data, client.id]);
+            users.push([data, client.id, ip_address]);
         }
 
         console.table(users);
