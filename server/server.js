@@ -1,7 +1,7 @@
 const { debug } = require('console');
 var crypto = require('crypto');
 
-const PORT = 3000;
+const PORT = 8080;
 
 const fs = require('fs');
 const server = require('http').createServer(async (req, res) => {
@@ -38,7 +38,7 @@ function find_ethAddress(_client_id) {
             return users[i][0];
         }
     }
-    return -1
+    return -1;
 }
 
 //  Listen for incoming connections

@@ -5,7 +5,7 @@ serverconnected = false
 
 //sio_addEvent("login")
 
-URL = "localhost:3000"
+URL = "https://server-q6k55sfc4a-uc.a.run.app/"
 
 web3address = "-1"
 
