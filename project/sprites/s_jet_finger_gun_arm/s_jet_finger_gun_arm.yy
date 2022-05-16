@@ -7,15 +7,15 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 79,
-  "bbox_right": 191,
-  "bbox_top": 80,
-  "bbox_bottom": 110,
+  "bbox_left": 14,
+  "bbox_right": 25,
+  "bbox_top": 25,
+  "bbox_bottom": 56,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 256,
-  "height": 256,
+  "width": 64,
+  "height": 64,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,10 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"de588ca6-a89d-4bd2-9e86-95a29dd36293","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"de588ca6-a89d-4bd2-9e86-95a29dd36293","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"LayerId":{"name":"c5e48240-5a8a-4c84-ade1-2fa07d1b4cae","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"s_jet_finger_gun_arm","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","name":"de588ca6-a89d-4bd2-9e86-95a29dd36293","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"21df9667-1703-4221-b171-17ac34a70cae","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"21df9667-1703-4221-b171-17ac34a70cae","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"LayerId":{"name":"020f3ff8-8ff4-463e-aca2-bc47460dcc8a","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"21df9667-1703-4221-b171-17ac34a70cae","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"LayerId":{"name":"7a7a7e5c-3edb-42fa-acf7-abbc56597052","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_jet_finger_gun_arm","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","name":"21df9667-1703-4221-b171-17ac34a70cae","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"s_jet_finger_gun_arm","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},
@@ -41,7 +42,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"dff1c288-a6fc-41f0-94a9-6be2d7b61ac8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"de588ca6-a89d-4bd2-9e86-95a29dd36293","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"462e49f2-309f-4a40-aa15-80edcf48a7b2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"21df9667-1703-4221-b171-17ac34a70cae","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -54,8 +55,8 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 91,
-    "yorigin": 96,
+    "xorigin": 23,
+    "yorigin": 26,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"s_jet_finger_gun_arm","path":"sprites/s_jet_finger_gun_arm/s_jet_finger_gun_arm.yy",},
@@ -65,7 +66,8 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c5e48240-5a8a-4c84-ade1-2fa07d1b4cae","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"7a7a7e5c-3edb-42fa-acf7-abbc56597052","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":false,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"020f3ff8-8ff4-463e-aca2-bc47460dcc8a","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

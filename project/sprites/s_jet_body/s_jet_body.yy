@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"LayerId":{"name":"c81cc26a-f7f2-4333-a981-3536936afac0","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"s_jet_finger_gun_body","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"resourceVersion":"1.0","name":"b097d014-90ef-4d69-b7c0-b58004786dad","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"278f2f3c-6e9a-4e80-82f7-f158fc82b74d","path":"sprites/s_jet_body/s_jet_body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"278f2f3c-6e9a-4e80-82f7-f158fc82b74d","path":"sprites/s_jet_body/s_jet_body.yy",},"LayerId":{"name":"83a625e3-0943-4b02-afff-f19839ad4736","path":"sprites/s_jet_body/s_jet_body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_jet_body","path":"sprites/s_jet_body/s_jet_body.yy",},"resourceVersion":"1.0","name":"278f2f3c-6e9a-4e80-82f7-f158fc82b74d","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"s_jet_finger_gun_body","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},
+    "spriteId": {"name":"s_jet_body","path":"sprites/s_jet_body/s_jet_body.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f66e364a-a3d2-419f-91e6-d965c4ece3c8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"0acd92f0-0130-4079-a419-4573713c009f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"278f2f3c-6e9a-4e80-82f7-f158fc82b74d","path":"sprites/s_jet_body/s_jet_body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 64,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"s_jet_finger_gun_body","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},
+    "parent": {"name":"s_jet_body","path":"sprites/s_jet_body/s_jet_body.yy",},
     "resourceVersion": "1.4",
-    "name": "s_jet_finger_gun_body",
+    "name": "s_jet_body",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c81cc26a-f7f2-4333-a981-3536936afac0","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"83a625e3-0943-4b02-afff-f19839ad4736","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Art.yy",
   },
   "resourceVersion": "1.0",
-  "name": "s_jet_finger_gun_body",
+  "name": "s_jet_body",
   "tags": [],
   "resourceType": "GMSprite",
 }
