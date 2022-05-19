@@ -17,6 +17,8 @@ if aiming {
 		image_xscale = -1		
 	}
 	else image_xscale = 1
+	
+	if input.mouseLeftPress and !shooting shoot()
 }
 
 else {
