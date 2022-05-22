@@ -1,5 +1,6 @@
 const { debug } = require('console');
 var crypto = require('crypto');
+const url = require("url");
 
 const PORT = 8080;
 
@@ -8,24 +9,14 @@ const server = require('http').createServer(async (req, res) => {
     res.writeHead(200, { 'content-type': 'text/html'})
     fs.createReadStream('static/index.html').pipe(res)
 
-    if (req.url == "/users" && req.method === "GET") {
-        console.log(JSON.stringify(users));
-        res.write(JSON.stringify(users));
-        res.end();
+    var queryData = url.parse(req.url, true).query;
+
+    //  Server is being supplied an address, lets respond with the client id
+    if (queryData.address) {
+        var _address = queryData.address;
+        res.end(find_clientID(_address));
     }
 
-    if (req.url == "/hash" && req.method === "GET") {
-        var hash = crypto.createHash('sha256');
-
-        var code = 'poop';
-
-        code = hash.update(code);
-        code = hash.digest(code);
-
-        console.log(code);
-        res.write(code);
-        res.end();
-    }    
 })
 const io = require('socket.io')(server, { cors: { origin: '*'} });
 
@@ -34,11 +25,23 @@ const users = [];
 //  Function to search users[] using the client.id as KEY and returning the users ETH address
 function find_ethAddress(_client_id) {
     for(var i=0;i<users.length;i++) {
-        if (users[i][1] == _client_id) {
-            return users[i][0];
+        if (users[i].id == _client_id) {
+            return users[i].address;
         }
     }
     return -1;
+}
+
+// Function to search users[] using the users ETH address as KEY and returning the users client.id
+function find_clientID(_ethAddress) {
+    for(var i=0;i<users.length;i++) {
+        //console.log(`find_clientID: _ethAddress: ${_ethAddress}`);
+        //console.log(`find_clientID: users[${i}].address: ${users[i].address}`);
+        if (users[i].address.toUpperCase() == _ethAddress.toUpperCase()) {
+            return users[i].id;
+        }
+    }
+    return "-1";
 }
 
 //  Listen for incoming connections
@@ -58,23 +61,30 @@ io.on('connection', (client) => {
     client.on('login', (data) => {
         console.log(`login event data: > '${data}'`);
 
-        var ip_address = client.handshake.address;
+        //  var ip_address = client.handshake.address;
+        //  client.id
+        //  data ==> users address
 
+        //  Make new User object
+        var user = {
+            address : data,
+            id : client.id
+        }
+        
         var alreadyIn = false
         for(var i=0;i<users.length;i++) {
-            if (users[i][0] == data || users[i][1] == client.id || users[i][2] == ip_address) {
+            if ((users[i].address == user.address) || (users[i].id == user.id)) {
                 alreadyIn = true;
             }
         }
-        console.log(alreadyIn);
 
-        if (alreadyIn == true) {
-            console.log('this user is already in the database');
+        if (alreadyIn) {
+            console.log("this user is already logged in")
         } else {
-            users.push([data, client.id, ip_address]);
+            users.push(user);
         }
 
-        console.table(users);
+        console.log(users);
 
         //  Send login result back
         client.emit('login', alreadyIn);
@@ -124,14 +134,14 @@ io.on('connection', (client) => {
 
         for(var i=0; i < users.length; i++) {
 
-            if (users[i][1] == client.id) {
+            if (users[i].id == client.id) {
                 //console.log("deleting user at: " + i);
                 users.pop(i);
             }
 
         }
 
-        console.table(users);
+        //console.table(users);
 
     });
     
