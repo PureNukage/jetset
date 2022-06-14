@@ -3,8 +3,8 @@ web3connected = checkMetaConnection()
 
 serverconnected = false
 
-//URL = "https://server-q6k55sfc4a-uc.a.run.app/"
-URL = "localhost:8080"
+URL = "https://server-q6k55sfc4a-uc.a.run.app/"
+//URL = "localhost:8080"
 
 web3address = "-1"
 

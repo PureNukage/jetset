@@ -11,10 +11,16 @@ const server = require('http').createServer(async (req, res) => {
 
     var queryData = url.parse(req.url, true).query;
 
-    //  Server is being supplied an address, lets respond with the client id
-    if (queryData.address) {
-        var _address = queryData.address;
-        res.end(find_clientID(_address));
+    //  Server is being queried for its users
+    if (req.method == "GET" && req.url.startsWith("/users")) {
+        var Users = JSON.stringify(users);
+        if (queryData.address) {
+            var _address = queryData.address;
+            res.end(find_clientID(_address));
+        }
+        else {
+            res.end(Users);
+        }
     }
 
 })
@@ -68,7 +74,8 @@ io.on('connection', (client) => {
         //  Make new User object
         var user = {
             address : data,
-            id : client.id
+            id : client.id,
+            nft : 0
         }
         
         var alreadyIn = false
