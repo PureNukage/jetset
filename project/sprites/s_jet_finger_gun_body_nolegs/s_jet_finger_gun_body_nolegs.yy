@@ -10,7 +10,7 @@
   "bbox_left": 13,
   "bbox_right": 46,
   "bbox_top": 1,
-  "bbox_bottom": 63,
+  "bbox_bottom": 50,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"LayerId":{"name":"c81cc26a-f7f2-4333-a981-3536936afac0","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"s_jet_finger_gun_body","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"resourceVersion":"1.0","name":"b097d014-90ef-4d69-b7c0-b58004786dad","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},"LayerId":{"name":"c81cc26a-f7f2-4333-a981-3536936afac0","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"s_jet_finger_gun_body_nolegs","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},"resourceVersion":"1.0","name":"b097d014-90ef-4d69-b7c0-b58004786dad","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"s_jet_finger_gun_body","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},
+    "spriteId": {"name":"s_jet_finger_gun_body_nolegs","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f66e364a-a3d2-419f-91e6-d965c4ece3c8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"ff9a708a-086c-4f37-9508-2690678d301f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b097d014-90ef-4d69-b7c0-b58004786dad","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 64,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"s_jet_finger_gun_body","path":"sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",},
+    "parent": {"name":"s_jet_finger_gun_body_nolegs","path":"sprites/s_jet_finger_gun_body_nolegs/s_jet_finger_gun_body_nolegs.yy",},
     "resourceVersion": "1.4",
-    "name": "s_jet_finger_gun_body",
+    "name": "s_jet_finger_gun_body_nolegs",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Art.yy",
   },
   "resourceVersion": "1.0",
-  "name": "s_jet_finger_gun_body",
+  "name": "s_jet_finger_gun_body_nolegs",
   "tags": [],
   "resourceType": "GMSprite",
 }

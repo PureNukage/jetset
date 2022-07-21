@@ -1,5 +1,6 @@
 arm_socket_x = -12
 arm_socket_y = -38
+arm_sprite = s_jet_finger_gun_arm
 
 hspd = 0
 vspd = 0
@@ -33,9 +34,15 @@ function shoot() {
 	shootTimer = 3
 }
 function _shooting() {
-	if shootTimer > -1 shootTimer--
-	else shooting = false
+	if shootTimer > -1 {
+		shootTimer--
+		arm_sprite = s_jet_finger_gun_arm_shooting
+	}
+	else {
+		shooting = false
+		arm_sprite = s_jet_finger_gun_arm
+	}
 	
-	draw_set_color(c_blue)
-	draw_line(shootX,shootY, aimX,aimY)
+	//draw_set_color(c_blue)
+	//draw_line(shootX,shootY, aimX,aimY)
 }
