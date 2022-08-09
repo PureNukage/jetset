@@ -32,6 +32,7 @@
     {"id":{"name":"gmcallback_sio_on_disconnect","path":"scripts/gmcallback_sio_on_disconnect/gmcallback_sio_on_disconnect.yy",},"order":3,},
     {"id":{"name":"SocketIO","path":"extensions/SocketIO/SocketIO.yy",},"order":0,},
     {"id":{"name":"alien","path":"objects/alien/alien.yy",},"order":10,},
+    {"id":{"name":"sdr_flash","path":"shaders/sdr_flash/sdr_flash.yy",},"order":0,},
     {"id":{"name":"s_head","path":"sprites/s_head/s_head.yy",},"order":10,},
     {"id":{"name":"s_demon_collision","path":"sprites/s_demon_collision/s_demon_collision.yy",},"order":17,},
     {"id":{"name":"gmcallback_sio_on_generate_alien","path":"scripts/gmcallback_sio_on_generate_alien/gmcallback_sio_on_generate_alien.yy",},"order":5,},
