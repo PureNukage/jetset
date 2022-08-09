@@ -13,6 +13,7 @@ if on {
 	if instance_exists(player) with player {
 		draw_text(15,yy,"player.arm_rotation: "+string(player.arm_rotation)) yy += 15
 		draw_text(15,yy,"player.image_index: " +string(player.image_index)) yy += 15
+		draw_text(15,yy,"player.reloading: "+string(player.reloading)) yy += 15
 	}
-	
+ 	
 }

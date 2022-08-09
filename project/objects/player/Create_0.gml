@@ -11,6 +11,8 @@ arm_rotation = point_direction(arm_socket_x,arm_socket_y,mouse_x,mouse_y)
 
 network.generate_alien(player.x+100, player.y-150)
 
+ammo = 6
+reloading = -1
 
 shootX = -1
 shootY = -1
@@ -28,6 +30,13 @@ function shoot() {
 	
 	aimX = mouse_x
 	aimY = mouse_y
+	
+	ammo--
+	app.cursor_bounce = 5
+	
+	if reloading != -1 reloading = -1
+	
+	sound.playSoundEffect(snd_fingersnap)
 	
 	if instance_exists(demon) with demon mask_index = s_demon_collision
 	

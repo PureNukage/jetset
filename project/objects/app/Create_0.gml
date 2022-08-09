@@ -1,6 +1,9 @@
 creator = ""
 version = ""
 
+cursor_bounce = 0
+window_set_cursor(cr_none)
+
 var Layer = "Instances"
 instance_create_layer(0,0,Layer,input)
 instance_create_layer(0,0,Layer,debug)
@@ -118,6 +121,7 @@ function cameraFix() {
 	#endregion
 }
 
+//	Camera canvas logic
 function cameraLogic() {
 	
 	//zoom_level = clamp((zoom_level + (mouse_wheel_down()-mouse_wheel_up())*0.1),0.25,2.0)
@@ -162,6 +166,7 @@ cameraLerp = -1
 cameraX = -1
 cameraY = -1
 cameraObject = -1
+//	Focus the camera on an x,y position
 function cameraFocusPosition(_x, _y, _duration, _lerp) {
 	cameraX = _x
 	cameraY = _y
@@ -170,12 +175,14 @@ function cameraFocusPosition(_x, _y, _duration, _lerp) {
 	cameraObject = -1
 }
 
+//	Focus the camera on an object
 function cameraFocusObject(_object, _duration, _lerp) {
 	cameraObject = _object
 	cameraDuration = _duration
 	cameraLerp = _lerp
 }
 
+//	The active step logic component to the camera
 function _cameraFocus() {
 	//	We are focusing on an object
 	if cameraObject != -1 {

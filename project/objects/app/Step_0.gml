@@ -2,7 +2,4 @@ _cameraFocus()
 
 cameraLogic()
 
-//if instance_exists(player) {
-//	x = player.x
-//	y = player.y - 32
-//}
+depth = -room_height

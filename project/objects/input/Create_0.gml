@@ -17,6 +17,8 @@ function inputs() {
 	
 	keySpacePress = keyboard_check_pressed(vk_space)
 	
+	keyReload = keyboard_check_pressed(ord("R"))
+	
 }
 
 inputs()
