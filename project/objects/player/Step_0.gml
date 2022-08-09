@@ -44,3 +44,5 @@ else if !(hspd != 0 or vspd != 0) {
 else {
 	sprite_index = s_jet_legs
 }
+
+depth = -y

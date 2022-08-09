@@ -1,0 +1,4 @@
+applyMovement()
+applyThrust()
+
+depth = -y

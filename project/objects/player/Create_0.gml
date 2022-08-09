@@ -29,6 +29,36 @@ function shoot() {
 	aimX = mouse_x
 	aimY = mouse_y
 	
+	if instance_exists(demon) with demon mask_index = s_demon_collision
+	
+	//	Loop from Jets finger to the target checking for any objects in the line
+	if collision_line(shootX,shootY, aimX,aimY, demon, true, true) {
+		var enemy = collision_line(shootX,shootY, aimX,aimY, demon, true, true)
+		if enemy.onGround {
+			//	Find where we hit the unit
+			var Direction = point_direction(shootX,shootY, aimX,aimY)
+			var Distance = point_distance(shootX,shootY, aimX,aimY)
+		
+			var _x = shootX
+			var _y = shootY
+			var hit_x = -1
+			var hit_y = -1
+			for(var i=0;i<Distance;i++) {
+				if instance_position(_x,_y,demon) {
+					hit_x = _x
+					hit_y = _y
+				}
+				else {
+					_x += lengthdir_x(1, Direction)
+					_y += lengthdir_y(1, Direction)
+				}
+			}
+			enemy.shot(hit_x,hit_y, x,y)
+		}
+	}
+	
+	if instance_exists(demon) with demon mask_index = s_demon
+	
 	shooting = true
 	
 	shootTimer = 3
