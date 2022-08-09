@@ -157,6 +157,59 @@ function cameraLogic() {
 	y = clamp(y,0+edgeY,room_height-edgeY)	
 }
 	
+cameraDuration = -1
+cameraLerp = -1
+cameraX = -1
+cameraY = -1
+cameraObject = -1
+function cameraFocusPosition(_x, _y, _duration, _lerp) {
+	cameraX = _x
+	cameraY = _y
+	cameraDuration = _duration
+	cameraLerp = _lerp
+	cameraObject = -1
+}
+
+function cameraFocusObject(_object, _duration, _lerp) {
+	cameraObject = _object
+	cameraDuration = _duration
+	cameraLerp = _lerp
+}
+
+function _cameraFocus() {
+	//	We are focusing on an object
+	if cameraObject != -1 {
+		cameraX = cameraObject.x
+		cameraY = cameraObject.y
+	}
+	
+	//	Lerping
+	if cameraLerp != 0 {
+		x = floor(lerp(x, cameraX, cameraLerp))
+		y = floor(lerp(y, cameraY, cameraLerp))
+	}
+	else {
+		x = cameraX
+		y = cameraY
+	}
+	
+	//	Duration
+	if is_string(cameraDuration) and cameraDuration == "~" {
+		
+	}
+	else {
+		if cameraDuration > 0 cameraDuration--
+		else {
+			//	Focus back on player
+			cameraFocusObject(player, "~", 0)	
+		}
+	}
+	
+}
+
+if instance_exists(player) cameraFocusObject(player, "~", 0)
+else cameraFocusPosition(0,0,"~",0)
+	
 cameraSetup()
 
 room_goto(RoomMainMenu)

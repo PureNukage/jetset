@@ -76,3 +76,5 @@ function _shooting() {
 	//draw_set_color(c_blue)
 	//draw_line(shootX,shootY, aimX,aimY)
 }
+	
+app.cameraFocusObject(player, "~", 0.2)
