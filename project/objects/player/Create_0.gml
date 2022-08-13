@@ -1,5 +1,9 @@
 event_inherited()
 
+mask_full = s_jet_finger_gun_body
+mask_collision = s_jet_collision
+mask_index = mask_collision
+
 parts.legs = new createBodypart(type.leg,s_jet_legs,0,0)
 parts.torso = new createBodypart(type.torso,s_jet_finger_gun_body_nolegs,0,0)
 parts.top_arm = new createBodypart(type.top_arm,s_jet_finger_gun_arm,-12,-38)
@@ -37,11 +41,11 @@ function shoot() {
 	
 	sound.playSoundEffect(snd_fingersnap)
 	
-	if instance_exists(demon) with demon mask_index = s_demon_collision
+	if instance_exists(class_enemy) with class_enemy mask_index = mask_full
 	
 	//	Loop from Jets finger to the target checking for any objects in the line
-	if collision_line(shootX,shootY, aimX,aimY, demon, true, true) {
-		var enemy = collision_line(shootX,shootY, aimX,aimY, demon, true, true)
+	if collision_line(shootX,shootY, aimX,aimY, class_enemy, true, true) {
+		var enemy = collision_line(shootX,shootY, aimX,aimY, class_enemy, true, true)
 		if enemy.onGround {
 			//	Find where we hit the unit
 			var Direction = point_direction(shootX,shootY, aimX,aimY)
@@ -52,7 +56,7 @@ function shoot() {
 			var hit_x = -1
 			var hit_y = -1
 			for(var i=0;i<Distance;i++) {
-				if instance_position(_x,_y,demon) {
+				if instance_position(_x,_y,class_enemy) {
 					hit_x = _x
 					hit_y = _y
 				}
@@ -65,7 +69,7 @@ function shoot() {
 		}
 	}
 	
-	if instance_exists(demon) with demon mask_index = s_demon
+	if instance_exists(class_enemy) with class_enemy mask_index = mask_collision
 	
 	shooting = true
 	

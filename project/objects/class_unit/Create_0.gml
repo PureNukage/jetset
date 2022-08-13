@@ -8,6 +8,8 @@ thrust = 0
 grav = 1
 force = 0
 aiming = false
+mask_full = -1
+mask_collision = -1
 
 parts = {
 	legs : -1,
