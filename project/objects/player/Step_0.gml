@@ -26,7 +26,7 @@ if (hspd != 0 or vspd != 0) and reloading == -1 {
 	else image_speed = 0.5
 	sprite_index = s_jet_legs
 	var Direction = point_direction(0,0,hspd,vspd)
-	if force < 5 force++
+	if force < forceMax force++
 	setForce(force, Direction)
 }
 else {

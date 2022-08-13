@@ -7,9 +7,11 @@ onGround = true
 thrust = 0
 grav = 1
 force = 0
+forceMax = 5
 aiming = false
 mask_full = -1
 mask_collision = -1
+shootTimer = -1
 
 parts = {
 	legs : -1,

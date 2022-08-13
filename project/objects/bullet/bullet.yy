@@ -1,11 +1,17 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "s_bullet",
+    "path": "sprites/s_bullet/s_bullet.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
-  "persistent": true,
-  "parentObjectId": null,
+  "persistent": false,
+  "parentObjectId": {
+    "name": "class_unit",
+    "path": "objects/class_unit/class_unit.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,7 +27,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
@@ -31,7 +36,7 @@
     "path": "folders/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "debug",
+  "name": "bullet",
   "tags": [],
   "resourceType": "GMObject",
 }

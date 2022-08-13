@@ -42,6 +42,7 @@
     {"id":{"name":"gmcallback_sio_on_disconnect","path":"scripts/gmcallback_sio_on_disconnect/gmcallback_sio_on_disconnect.yy",},"order":3,},
     {"id":{"name":"SocketIO","path":"extensions/SocketIO/SocketIO.yy",},"order":0,},
     {"id":{"name":"alien","path":"objects/alien/alien.yy",},"order":11,},
+    {"id":{"name":"bullet","path":"objects/bullet/bullet.yy",},"order":15,},
     {"id":{"name":"s_popo_collision","path":"sprites/s_popo_collision/s_popo_collision.yy",},"order":22,},
     {"id":{"name":"s_popo_torso","path":"sprites/s_popo_torso/s_popo_torso.yy",},"order":24,},
     {"id":{"name":"sdr_flash","path":"shaders/sdr_flash/sdr_flash.yy",},"order":0,},

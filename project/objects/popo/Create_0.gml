@@ -1,5 +1,8 @@
 event_inherited()
 
+range = 300
+aimingTimer = -1
+
 mask_full = s_popo_idle
 mask_collision = s_popo_collision
 mask_index = mask_collision
