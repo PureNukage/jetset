@@ -8,12 +8,12 @@ if input.mouseRight and reloading == -1 {
 else aiming = false
 
 //	Start reloading
-if input.keyReload {
-	reloading = 10
+if input.keyReload and ammo < 6 and reloading == -1 {
+	reloading = 15
 	sound.playSoundEffect(snd_blow)
 }
 
-//	Reloading bullets individually
+//	Reloading bullets all at once
 if reloading > 0 reloading--
 else if reloading == 0 {
 	ammo = 6
@@ -21,28 +21,30 @@ else if reloading == 0 {
 }
 
 //	Moving
-if (hspd != 0 or vspd != 0) {
+if (hspd != 0 or vspd != 0) and reloading == -1 {
 	if !aiming image_speed = 1
 	else image_speed = 0.5
 	sprite_index = s_jet_legs
-	x += hspd * 5
-	y += vspd * 5
+	var Direction = point_direction(0,0,hspd,vspd)
+	if force < 5 force++
+	setForce(force, Direction)
 }
 else {
 	image_speed = 0
+	if force > 0 force--
 }
 
 //	Active aiming logic
 if aiming {
 
-	arm_rotation = point_direction(x+(arm_socket_x*image_xscale),y+arm_socket_y,mouse_x,mouse_y)
+	parts.top_arm.angle = point_direction(x+(parts.top_arm.x_offset*image_xscale),y+parts.top_arm.y_offset,mouse_x,mouse_y)
 
-	if (arm_rotation > 90 and arm_rotation < 270) {
+	if (parts.top_arm.angle > 90 and parts.top_arm.angle < 270) {
 		image_xscale = -1
 	}
 	else image_xscale = 1
 	
-	if input.mouseLeftPress and !shooting and ammo > 0 shoot()
+	if input.mouseLeft and !shooting and ammo > 0 shoot()
 }
 //	Not aiming anymore
 else {
@@ -51,14 +53,13 @@ else {
 }
 
 //	Sprite logic
-if aiming {
-	//sprite_index = s_jet_finger_gun_body
-}
-else if !(hspd != 0 or vspd != 0) {
+if !(hspd != 0 or vspd != 0) {
 	sprite_index = s_jet_body
 }
 else {
 	sprite_index = s_jet_legs
 }
+
+applyMovement()
 
 depth = -y

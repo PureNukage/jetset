@@ -1,9 +1,32 @@
 xx = 0
 yy = 0
 z = 0
+hspd = 0
+vspd = 0
 onGround = true
 thrust = 0
 grav = 1
+force = 0
+aiming = false
+
+parts = {
+	legs : -1,
+	torso : -1,
+	torso_with_arms : -1,
+	torso_reload : -1,
+	top_arm : -1,
+	bottom_arm : -1,
+}
+
+function createBodypart(_type,_sprite,_x_offset,_y_offset) constructor {
+	type = _type
+	sprite = _sprite
+	x_offset = _x_offset
+	y_offset = _y_offset
+	frame = -1
+	index = -1
+	angle = -1
+}
 
 function setThrust(Thrust) {
 	onGround = false

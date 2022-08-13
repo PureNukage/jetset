@@ -220,3 +220,5 @@ else cameraFocusPosition(0,0,"~",0)
 cameraSetup()
 
 room_goto(RoomMainMenu)
+
+scale_canvas(1280,720)

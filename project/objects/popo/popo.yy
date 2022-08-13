@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_jet_finger_gun_body",
-    "path": "sprites/s_jet_finger_gun_body/s_jet_finger_gun_body.yy",
+    "name": "s_popo_idle",
+    "path": "sprites/s_popo_idle/s_popo_idle.yy",
   },
   "solid": false,
   "visible": true,
@@ -9,8 +9,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "class_unit",
-    "path": "objects/class_unit/class_unit.yy",
+    "name": "class_enemy",
+    "path": "objects/class_enemy/class_enemy.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,10 +25,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -37,7 +34,7 @@
     "path": "folders/Game.yy",
   },
   "resourceVersion": "1.0",
-  "name": "player",
+  "name": "popo",
   "tags": [],
   "resourceType": "GMObject",
 }
