@@ -15,5 +15,6 @@ if on {
 		draw_text(15,yy,"player.image_index: " +string(player.image_index)) yy += 15
 		draw_text(15,yy,"player.reloading: "+string(player.reloading)) yy += 15
 	}
+
  	
 }

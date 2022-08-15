@@ -11,3 +11,9 @@ enum type {
 	top_arm,
 	bottom_arm
 }
+
+enum state {
+	free,
+	idle,
+	aggro,
+}

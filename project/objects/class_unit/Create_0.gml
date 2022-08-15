@@ -12,6 +12,10 @@ aiming = false
 mask_full = -1
 mask_collision = -1
 shootTimer = -1
+state = state.free
+timer = -1
+ammo = 6
+reloading = -1
 
 parts = {
 	legs : -1,

@@ -14,9 +14,6 @@ parts.top_arm.angle = point_direction(x+(parts.top_arm.x_offset*image_xscale),y+
 
 network.generate_alien(player.x+100, player.y-150)
 
-ammo = 6
-reloading = -1
-
 shootX = -1
 shootY = -1
 aimX = -1
