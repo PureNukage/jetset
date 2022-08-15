@@ -26,7 +26,8 @@ if on {
 	if instance_exists(popo) with popo {
 		draw_set_color(c_black)
 		mask_index = mask_full
-		draw_text(x,bbox_top-50,string(pos)+"/"+string(path_get_number(path)))
+		draw_text(x,bbox_top-50,"ammo: "+string(ammo))
+		draw_text(x,bbox_top-25,"reloading: "+string(reloading))
 		mask_index = mask_collision
 		draw_set_color(c_red)
 		draw_set_alpha(0.5)

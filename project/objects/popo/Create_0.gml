@@ -13,6 +13,10 @@ parts.torso = new createBodypart(type.torso,s_popo_torso,0,0)
 parts.top_arm = new createBodypart(type.top_arm,s_popo_arm,-20,-81)
 parts.bottom_arm = new createBodypart(type.bottom_arm,s_popo_other_arm,9,-80)
 parts.torso_with_arms = new createBodypart(type.torso_with_arms,s_popo_torso_with_arms,0,0)
+parts.torso_reload = new createBodypart(type.torso_reload,s_popo_reloading,0,0)
+
+ammo = 3
+ammoMax = 3
 
 forceMax = 3
 timer = irandom_range(30,60)

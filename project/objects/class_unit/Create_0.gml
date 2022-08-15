@@ -15,6 +15,7 @@ shootTimer = -1
 state = state.free
 timer = -1
 ammo = 6
+ammoMax = 6
 reloading = -1
 
 parts = {

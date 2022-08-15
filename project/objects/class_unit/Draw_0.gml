@@ -13,7 +13,7 @@ if aiming {
 //	Reloading
 else if reloading > -1 {
 	draw_sprite_ext(parts.legs.sprite,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
-	draw_sprite_ext(parts.torso_reload.sprite,0,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
+	draw_sprite_ext(parts.torso_reload.sprite,image_index,x,y-z,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
 }
 //	Idle
 else {

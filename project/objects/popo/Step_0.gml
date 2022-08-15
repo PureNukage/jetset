@@ -21,6 +21,7 @@ switch(state) {
 			setThrust(5)	//	Do a little hop
 			timer = irandom_range(15,30)
 			drawExclamation = 30
+			parts.torso_with_arms.sprite = s_popo_torso_holding_gun
 		}
 		
 	break
@@ -32,74 +33,80 @@ switch(state) {
 			playerWithinDistance = true
 		}
 		
-		//	Aiming/firing
-		if !moving {
-			//	We just got done firing a salvo
-			if shotsFired == -1 {
-				shotsFired = 0
-				var random_x = irandom_range(x, player.x)
-				var random_y = irandom_range(y, player.y)
-				move_grid(random_x,random_y)
-			}
-			else {
-				//	We are within camera view
-				if playerWithinDistance {
-					mask_index = mask_full
-					if rectangle_in_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom, app.x-320,app.y-180,app.x+320,app.y+180) {
-						//	We have a line of sight on the player
-						if !collision_line(x,y, player.x,player.y,collision,true,true) {
-							if shotsFired == 0 {
-								aiming = true
-								aimingTimer = irandom_range(15,25)
-								shotsFired = choose(1,1,2)
-								if shotsFired > ammo shotsFired = ammo
+		if ammo > 0 and reloading == -1 {
+			//	Aiming/firing
+			if !moving {
+				//	We just got done firing a salvo
+				if shotsFired == -1 {
+					shotsFired = 0
+					var random_x = irandom_range(x, player.x)
+					var random_y = irandom_range(y, player.y)
+					move_grid(random_x,random_y)
+				}
+				else {
+					//	We are within camera view
+					if playerWithinDistance {
+						mask_index = mask_full
+						if rectangle_in_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom, app.x-320,app.y-180,app.x+320,app.y+180) {
+							//	We have a line of sight on the player
+							if !collision_line(x,y, player.x,player.y,collision,true,true) {
+								if shotsFired == 0 {
+									aiming = true
+									aimingTimer = irandom_range(15,25)
+									shotsFired = choose(1,1,2)
+									if shotsFired > ammo shotsFired = ammo
+								}
+								//	Continuing firing
+								else if !aiming {
+									aiming = true
+									aimingTimer = irandom_range(15,25)
+								}
 							}
-							//	Continuing firing
-							else if !aiming {
-								aiming = true
-								//aimingTimer = irandom_range(15,25)
+							//	We do NOT have line of sight, lets move
+							else {
+								var random_x = irandom_range(x, player.x)
+								var random_y = irandom_range(y, player.y)
+								move_grid(random_x,random_y)
 							}
 						}
-						//	We do NOT have line of sight, lets move
+						//	We are NOT within camera view, lets move
 						else {
 							var random_x = irandom_range(x, player.x)
 							var random_y = irandom_range(y, player.y)
-							move_grid(random_x,random_y)
+							move_grid(random_x,random_y)	
 						}
+						mask_index = mask_collision
 					}
-					//	We are NOT within camera view, lets move
+					//	Player is NOT within shooting distance, lets move
 					else {
 						var random_x = irandom_range(x, player.x)
 						var random_y = irandom_range(y, player.y)
 						move_grid(random_x,random_y)	
 					}
-					mask_index = mask_collision
-				}
-				//	Player is NOT within shooting distance, lets move
-				else {
-					var random_x = irandom_range(x, player.x)
-					var random_y = irandom_range(y, player.y)
-					move_grid(random_x,random_y)	
 				}
 			}
-		}
 	
-		//	Moving/re-positioning
-		else {
+			//	Moving/re-positioning
+			else {
 				
+			}
 		}
-		
 		//	Out of ammo, lets reload!
-		if ammo <= 0 {
-			reloading = 15	
+		else if reloading == -1 {
+			reloading = 18
+			sprite_index = s_popo_reloading
+			parts.legs.sprite = s_popo_legs_idle
 		}
 		//	Actively reloading
-		if reloading > -1 reloading--
+		if reloading > 0 reloading--
 		else if reloading == 0 {
 			reloading = -1
-			if ammo < 6 {
-				ammo++
-				reloading = 15
+			ammo++
+			sound.playSoundEffect(snd_reload)
+			parts.legs.sprite = s_popo_legs_walk
+			if ammo < ammoMax {
+				reloading = 18
+				parts.legs.sprite = s_popo_legs_idle
 			}
 		}
 		
@@ -116,9 +123,9 @@ if aiming {
 	else image_xscale = 1
 	
 	if aimingTimer > -1 aimingTimer--
-	else {
+	else if shootTimer == -1 {
 		//	Shoot
-		var xx = x + parts.top_arm.x_offset 
+		var xx = x + (parts.top_arm.x_offset*image_xscale)
 		var yy = y + parts.top_arm.y_offset	
 		xx += lengthdir_x(55, parts.top_arm.angle)
 		yy += lengthdir_y(55, parts.top_arm.angle)
@@ -129,9 +136,20 @@ if aiming {
 		ammo--
 		shotsFired--
 		
+		shootTimer = 4
+		
+		sound.playSoundEffect(choose(snd_gunshot1,snd_gunshot2,snd_gunshot3))
+		
+		parts.top_arm.sprite = s_popo_arm_shooting
+		
+		//	Done firing this salvo
 		if shotsFired == 0 {
 			aiming = false
 			shotsFired = -1
+		}
+		//	We have another shot to fire, determine how long to aim
+		else {
+			aimingTimer = irandom_range(15,25)	
 		}
 	}
 	
@@ -141,26 +159,22 @@ if aiming {
 	}
 }
 
-else {
-	//	Is player within shooting range?
-	if instance_exists(player) and point_distance(x,y,player.x,player.y) <= range and !moving {
-		
-		//move_grid(player.x,player.y)
-	
-		//	Aim at player
-		//aiming = true
-		//aimingTimer = irandom_range(15,25)
-	
-	}		
+if shootTimer > -1 {
+	shootTimer--
+}
+else if parts.top_arm.sprite != s_popo_arm {
+	parts.top_arm.sprite = s_popo_arm
 }
 
 if moving _moving()
 
-if moving {
-	sprite_index = s_popo_legs_walk	
-}
-else {
-	sprite_index = s_popo_idle	
+if reloading == -1 {
+	if moving {
+		sprite_index = s_popo_legs_walk	
+	}
+	else {
+		sprite_index = s_popo_idle	
+	}
 }
 
 

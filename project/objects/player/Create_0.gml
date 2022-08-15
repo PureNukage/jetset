@@ -86,4 +86,6 @@ function _shooting() {
 	//draw_line(shootX,shootY, aimX,aimY)
 }
 	
+app.x = player.x
+app.y = player.y
 app.cameraFocusObject(player, "~", 0.2)
